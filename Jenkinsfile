@@ -5,7 +5,7 @@ pipeline {
         stage('Compile Stage') {
             steps {
                 echo 'Comple Stage starts...'
-				with Maven(maven : 'maven_3_5_2'){
+				withMaven(maven : 'maven_3_5_2'){
 				 sh 'mvn clean compile'
 				echo 'Comple Stage ends...'
 				}
@@ -14,7 +14,7 @@ pipeline {
         stage('Testing Stage') {
             steps {
                 echo 'Testing Stage starts...'
-				with Maven(maven : 'maven_3_5_2'){
+				withMaven(maven : 'maven_3_5_2'){
 				 sh 'mvn test'
 				echo 'Testing Stage ends...'
 				}
@@ -23,7 +23,7 @@ pipeline {
         stage('Install Stage') {
             steps {
                 echo 'Install Stage starts...'
-				with Maven(maven : 'maven_3_5_2'){
+				withMaven(maven : 'maven_3_5_2'){
 				 sh 'mvn install'
 				echo 'Install Stage ends...'
 				}
@@ -32,7 +32,7 @@ pipeline {
 	 stage('Deploy Stage') {
             steps {
                 echo 'Install Stage starts...'
-				with Maven(maven : 'maven_3_5_2'){
+				withMaven(maven : 'maven_3_5_2'){
 				 sh 'mvn deploy'
 				echo 'Deploy Stage ends...'
 				}
